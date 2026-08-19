@@ -1,0 +1,2178 @@
+/* =====================================================
+   PROGRAMS SECTION (SOLID, CLEAR & MODERN)
+   ===================================================== */
+.programs-section-new {
+  position: relative;
+  padding: 5.5rem 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.programs-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg-imigongo.jpeg');
+  background-repeat: repeat;
+  background-size: 380px auto;
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.programs-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.programs-header-new {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Journey bar */
+.prog-journey-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.75rem;
+}
+
+.prog-journey-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.prog-journey-step {
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 2px solid;
+  letter-spacing: 0.02em;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.prog-journey-step--green {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.prog-journey-step--blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}
+
+.prog-journey-step--yellow {
+  background: #fefce8;
+  color: #854d0e;
+  border-color: #fde047;
+}
+
+.prog-journey-step--future {
+  background: #f8fafc;
+  color: #64748b;
+  border-color: #e2e8f0;
+  opacity: 0.85;
+}
+
+.prog-journey-arrow {
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Smart Square Small Cards Grid */
+.prog-square-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Smart Square Solid Clean Card (No border color) */
+.prog-square-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  min-height: 310px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.prog-square-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08), 0 3px 8px rgba(15, 23, 42, 0.03);
+}
+
+/* Topography Pattern Overlay with INCREASED Opacity */
+.prog-square-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/topography-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content Container */
+.prog-square-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.65rem 1.65rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Top Row: Age Tag */
+.prog-square-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.prog-square-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.prog-square-icon--green {
+  background: #E5F3E7;
+  border: 1px solid rgba(62, 155, 79, 0.2);
+}
+
+.prog-square-icon--blue {
+  background: #E6F0F9;
+  border: 1px solid rgba(29, 95, 165, 0.2);
+}
+
+.prog-square-icon--yellow {
+  background: #FDF3D8;
+  border: 1px solid rgba(245, 184, 0, 0.3);
+}
+
+.prog-square-age {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.prog-square-age--green {
+  background: #F0FDF4;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+.prog-square-age--blue {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #BFDBFE;
+}
+
+.prog-square-age--yellow {
+  background: #FEFCE8;
+  color: #854D0E;
+  border: 1px solid #FEF08A;
+}
+
+/* Titles */
+.prog-square-titles {
+  margin-top: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.prog-square-name {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.15rem;
+}
+
+.prog-square-level {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+.prog-square-level--green {
+  color: #2E7A3C;
+}
+
+.prog-square-level--blue {
+  color: #1D5FA5;
+}
+
+.prog-square-level--yellow {
+  color: #9A7000;
+}
+
+/* Summarized description */
+.prog-square-desc {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: #475569;
+  margin: 0.25rem 0 0.5rem;
+}
+
+/* Compact bullet points */
+.prog-square-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.75);
+}
+
+.prog-square-point {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.80rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.prog-square-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prog-square-dot--green {
+  background: #DCFCE7;
+  color: #16A34A;
+}
+
+.prog-square-dot--blue {
+  background: #DBEAFE;
+  color: #2563EB;
+}
+
+.prog-square-dot--yellow {
+  background: #FEF9C3;
+  color: #CA8A04;
+}
+
+/* =====================================================
+   STATS BANNER (New)
+   ===================================================== */
+.stats-banner-new {
+  position: relative;
+  background: var(--blue);
+  overflow: hidden;
+  padding: 0;
+}
+
+.stats-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpolygon points='24,0 48,12 48,36 24,48 0,36 0,12' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.stats-banner-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.stat-cell-new {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 2.5rem 1.75rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s;
+}
+
+.stat-cell-new:last-child {
+  border-right: none;
+}
+
+.stat-cell-new:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stat-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(245, 184, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-num-new {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+.stat-lbl-new {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+}
+
+/* =====================================================
+   ACTIVITIES SECTION (WHITE HEADER + BLUE 2-DIVISION BOX)
+   ===================================================== */
+.activities-section-new {
+  position: relative;
+  padding: 5.5rem 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.activities-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.activities-header-new {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+/* Blue Box Container with Topography Overlay */
+.activities-blue-box {
+  position: relative;
+  background: var(--blue);
+  border-radius: 24px;
+  padding: 2.75rem 2.5rem;
+  overflow: hidden;
+  box-shadow: 0 16px 40px -8px rgba(29, 95, 165, 0.28), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.activities-topography-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/topography-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Two Column Split */
+.activities-two-col {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Left Column: Image Frame */
+.activities-image-col {
+  position: relative;
+}
+
+.activities-image-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.activities-image-clean {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3.3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right Column: Activities List (Background None) */
+.activities-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.activities-clean-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1.5rem;
+}
+
+.activity-clean-row {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.activity-clean-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.activity-clean-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activity-clean-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.activity-clean-desc {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.80rem;
+  line-height: 1.52;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+/* =====================================================
+   VALUES SECTION (New)
+   ===================================================== */
+.values-section-new {
+  position: relative;
+  padding: 5.5rem 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.values-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg-imigongo.jpeg');
+  background-repeat: repeat;
+  background-size: 380px auto;
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.values-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='36' fill='none' stroke='%231D5FA5' stroke-width='1' opacity='0.05'/%3E%3Ccircle cx='40' cy='40' r='24' fill='none' stroke='%231D5FA5' stroke-width='1' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.values-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.values-header-new {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.values-header-new .section-lead {
+  margin: 0 auto;
+}
+
+.values-grid-new {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+}
+
+.val-card-new {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Topography Pattern Overlay with opacity matching academic cards */
+.val-card-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/topography-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.val-card-new > *:not(.val-card-overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+.val-card-new::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: 3;
+}
+
+.val-card-new:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08), 0 3px 8px rgba(15, 23, 42, 0.03);
+  border-color: var(--blue-light);
+}
+
+.val-card-new:hover::after {
+  transform: scaleX(1);
+}
+
+.val-icon-new {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.val-card-new:hover .val-icon-new {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.val-icon-bg--blue {
+  background: var(--blue-light);
+}
+
+.val-icon-bg--green {
+  background: var(--green-light);
+}
+
+.val-icon-bg--yellow {
+  background: var(--yellow-light);
+}
+
+.val-icon-bg--red {
+  background: var(--red-light);
+}
+
+.val-icon-bg--purple {
+  background: #f3e8ff;
+}
+
+.val-name-new {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.val-desc-new {
+  font-size: 0.82rem;
+  color: var(--ink-light);
+  line-height: 1.65;
+}
+
+/* ── CTA Band (New) ── */
+.cta-band-new {
+  position: relative;
+  background: var(--yellow);
+  padding: 3.5rem 0;
+  overflow: hidden;
+}
+
+.cta-band-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url('/imigongo-5.png');
+  background-repeat: repeat;
+  background-size: 320px auto;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.cta-band-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-band-title-new {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.cta-band-sub-new {
+  font-size: 0.95rem;
+  color: var(--ink-light);
+}
+
+.cta-band-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cta-band-btn {
+  white-space: nowrap;
+}
+
+/* =====================================================
+   GUIDELINES SECTION (New)
+   ===================================================== */
+.guidelines-section-new {
+  position: relative;
+  padding: 6.5rem 0;
+  background: var(--blue-dark);
+  overflow: hidden;
+}
+
+.guidelines-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,0 60,15 60,45 30,60 0,45 0,15' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.guidelines-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.guidelines-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.eyebrow--white {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.eyebrow-dot--yellow {
+  background: var(--yellow);
+}
+
+.guidelines-icon-wrap {
+  margin: 1.5rem 0 1rem;
+  width: 68px;
+  height: 68px;
+  background: rgba(245, 184, 0, 0.12);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guidelines-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 0.65rem;
+}
+
+.guidelines-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Language toggle */
+.guidelines-lang-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.guidelines-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1.1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.guidelines-lang-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+
+.guidelines-lang-btn--active {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.guidelines-lang-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.5;
+}
+
+/* Rules list */
+.guidelines-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0;
+  animation: fadeUp 0.4s ease both;
+}
+
+.guideline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.guideline-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.guideline-num-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.guideline-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+}
+
+/* =====================================================
+   CONTACT & ADMISSIONS SECTION (New)
+   ===================================================== */
+.contact-section-new {
+  position: relative;
+  padding: 5.5rem 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.contact-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg-imigongo.jpeg');
+  background-repeat: repeat;
+  background-size: 380px auto;
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contact-header-new {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.contact-header-new .section-lead {
+  margin: 0 auto;
+}
+
+.contact-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* Smart Contact Box Cards */
+.contact-box-new {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.contact-box-new:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08), 0 3px 8px rgba(15, 23, 42, 0.03);
+}
+
+/* Topography Background Overlay matching Academic & Values cards */
+.contact-box-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/topography-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-box-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.25rem 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.contact-box-header {
+  margin-bottom: 1.25rem;
+}
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-badge--blue {
+  background: #EFF6FF;
+  color: #1D5FA5;
+  border: 1px solid #BFDBFE;
+}
+
+.contact-badge--yellow {
+  background: #FEFCE8;
+  color: #854D0E;
+  border: 1px solid #FEF08A;
+}
+
+.contact-box-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0.5rem 0 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.contact-box-desc {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Contact channels */
+.contact-channel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-channel-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+a.contact-channel-item:hover {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+  transform: translateX(3px);
+}
+
+.contact-channel-item--static {
+  cursor: default;
+}
+
+.contact-channel-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #E6F0F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-channel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.contact-channel-label {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.70rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1D5FA5;
+}
+
+.contact-channel-val {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.contact-map-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Admission highlights */
+.contact-admission-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.contact-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.contact-highlight-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #FEF3C7;
+  color: #9A7000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-highlight-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contact-highlight-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+}
+
+.contact-highlight-text {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.83rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Actions wrap */
+.contact-actions-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.contact-btn-full {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  text-decoration: none;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+/* =====================================================
+   FOOTER (New)
+   ===================================================== */
+.footer-new {
+  position: relative;
+  background: #0B2545;
+  color: rgba(255, 255, 255, 0.85);
+  overflow: hidden;
+}
+
+.footer-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/imigongo-5.png');
+  background-repeat: repeat;
+  background-size: 320px auto;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-body-new {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 2rem;
+}
+
+.footer-grid-new {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr 1.3fr;
+  gap: 2.75rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  margin-bottom: 1.15rem;
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo-link:hover {
+  opacity: 0.9;
+}
+
+.footer-logo-img {
+  border-radius: 50%;
+  border: 2px solid rgba(245, 184, 0, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+}
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer-brand-name {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.footer-brand-sub {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+.footer-tagline {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 360px;
+}
+
+.footer-house-colors {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-house-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.footer-house-dot:hover {
+  transform: scale(1.2);
+}
+
+.footer-house-dot--blue {
+  background: #2B72BE;
+}
+
+.footer-house-dot--yellow {
+  background: #F5B800;
+}
+
+.footer-house-dot--green {
+  background: #3E9B4F;
+}
+
+.footer-house-dot--red {
+  background: #D8342F;
+}
+
+.footer-col-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--yellow);
+  margin-bottom: 1.2rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0;
+}
+
+.footer-link {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.45;
+}
+
+a.footer-contact-item:hover {
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+.footer-contact-item--static {
+  cursor: default;
+}
+
+.footer-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(245, 184, 0, 0.12);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.footer-divider-new {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.footer-bottom-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-copyright {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.80rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-made-with {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.80rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =====================================================
+   BOARD PAGE
+   ===================================================== */
+.board-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+}
+
+.board-topbar-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.board-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.board-back-link:hover {
+  color: var(--blue);
+}
+
+.board-topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.board-topbar-logo img {
+  border-radius: 50%;
+}
+
+/* Hero */
+.board-hero {
+  position: relative;
+  background: var(--blue-dark);
+  padding: 6rem 2rem 5rem;
+  overflow: hidden;
+}
+
+.board-hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,0 60,15 60,45 30,60 0,45 0,15' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.board-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.board-hero-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  background: rgba(245, 184, 0, 0.12);
+  border: 1px solid rgba(245, 184, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.board-hero-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.board-hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Mission strip */
+.board-mission-strip {
+  background: var(--yellow);
+  padding: 0;
+}
+
+.board-mission-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+
+.board-mission-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1.75rem 1.5rem;
+}
+
+.board-mission-num {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.board-mission-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #5a4a00;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+}
+
+.board-mission-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Members grid */
+.board-members-section {
+  padding: 5.5rem 0;
+  background: var(--off-white);
+}
+
+.board-members-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.board-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.board-section-header .section-lead {
+  margin: 0 auto;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.board-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.board-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue-light);
+}
+
+.board-card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.board-card-badge {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.board-card-name {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+  line-height: 1.35;
+}
+
+.board-card-role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.board-card-bio {
+  font-size: 0.875rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.board-card-responsibilities {
+  width: 100%;
+  background: var(--off-white);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.board-resp-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: 0.65rem;
+}
+
+.board-resp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.board-resp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+
+.board-resp-item svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Principles */
+.board-principles-section {
+  padding: 5.5rem 0;
+  background: var(--white);
+}
+
+.board-principles-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.board-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.board-principle-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--blue);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  transition: all 0.22s ease;
+}
+
+.board-principle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+  background: var(--blue-light);
+}
+
+.board-principle-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.65rem;
+}
+
+.board-principle-desc {
+  font-size: 0.875rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+}
+
+/* Board CTA Band */
+.board-cta-band {
+  background: var(--blue);
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.board-cta-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpolygon points='24,0 48,12 48,36 24,48 0,36 0,12' fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.board-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.board-cta-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 0.35rem;
+}
+
+.board-cta-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.board-cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* =====================================================
+   RESPONSIVE — New Sections
+   ===================================================== */
+@media (max-width: 1024px) {
+  .activities-two-col {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .prog-square-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prog-square-card {
+    aspect-ratio: auto;
+    min-height: auto;
+  }
+
+  .values-grid-new {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .guidelines-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact-grid-new {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .stats-banner-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-cell-new:nth-child(2) {
+    border-right: none;
+  }
+
+  .stat-cell-new:nth-child(1),
+  .stat-cell-new:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer-grid-new {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .board-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .board-principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .board-mission-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .board-mission-divider:nth-child(4) {
+    display: none;
+  }
+
+  .board-mission-item:nth-child(3) {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .board-mission-item:nth-child(5) {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 768px) {
+  .prog-square-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activities-clean-list {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-band-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-band-actions {
+    justify-content: center;
+  }
+
+  .footer-grid-new {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-new {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .board-principles-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .board-mission-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .board-cta-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .board-cta-actions {
+    justify-content: center;
+  }
+
+  .prog-journey-steps {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .prog-journey-arrow {
+    transform: rotate(90deg);
+  }
+
+  .stats-banner-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .activities-grid-new {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid-new {
+    grid-template-columns: 1fr;
+  }
+
+  .board-principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .board-mission-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .board-mission-divider {
+    display: none;
+  }
+
+  .admission-ctas {
+    flex-direction: column;
+  }
+}
+
+/* =====================================================
+   MISSION & CORE VALUES (2-CARD SHOWCASE)
+   ===================================================== */
+.mission-section {
+  position: relative;
+  padding: 4.5rem 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.mission-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg-imigongo.jpeg');
+  background-repeat: repeat;
+  background-size: 380px auto;
+  opacity: 0.145;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mission-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.mission-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.mission-card {
+  position: relative;
+  background: linear-gradient(135deg, #104071 0%, #1D5FA5 60%, #206ec1 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px -10px rgba(29, 95, 165, 0.35), 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px -10px rgba(29, 95, 165, 0.44), 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.mission-card-topography {
+  position: absolute;
+  inset: 0;
+  background-image: url('/topography-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mission-card-body {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  height: 100%;
+  min-height: 290px;
+}
+
+.mission-card-content {
+  padding: 2.25rem 1.75rem 2.25rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.mission-card-title {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: clamp(1.75rem, 2.3vw, 2.25rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.1rem;
+}
+
+.mission-card-text {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.94);
+  margin-bottom: 1.35rem;
+}
+
+.mission-card-footer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  align-self: flex-start;
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #FDF3D8;
+  letter-spacing: 0.02em;
+}
+
+.mission-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #F5B800;
+  box-shadow: 0 0 8px rgba(245, 184, 0, 0.85);
+}
+
+.mission-values-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.mission-value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.mission-val-icon-wrap {
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-val-text {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.52;
+  color: rgba(255, 255, 255, 0.94);
+  margin: 0;
+}
+
+.mission-val-strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mission-card-image-col {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.mission-card-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  overflow: hidden;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border-top-left-radius: 44px;
+  border-bottom-left-radius: 44px;
+  margin-left: -12px;
+  box-shadow: -4px 0 18px rgba(0, 0, 0, 0.14);
+}
+
+.mission-card-img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.mission-card:hover .mission-card-img {
+  transform: scale(1.04);
+}
+
+.mission-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(16, 64, 113, 0.25), transparent 45%);
+  pointer-events: none;
+}
+
+@media (max-width: 1120px) {
+  .mission-card-body {
+    grid-template-columns: 1.12fr 0.88fr;
+  }
+
+  .mission-card-content {
+    padding: 1.85rem 1.25rem 1.85rem 1.5rem;
+  }
+
+  .mission-card-text {
+    font-size: 0.92rem;
+  }
+
+  .mission-val-text {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .mission-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .mission-card-body {
+    grid-template-columns: 1.2fr 0.8fr;
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mission-section {
+    padding: 3.25rem 0;
+  }
+
+  .mission-card-body {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mission-card-content {
+    padding: 1.75rem 1.5rem 1.25rem;
+  }
+
+  .mission-card-image-frame {
+    border-radius: 0 0 24px 24px;
+    margin-left: 0;
+    height: 230px;
+    min-height: 230px;
+  }
+}
