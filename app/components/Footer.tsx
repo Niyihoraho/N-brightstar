@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "../context/LanguageContext";
 
 /* =========================================================
    FOOTER — N-BRIGHT STAR ACADEMY
@@ -42,26 +45,28 @@ function ClockIcon({ size = 15, color = "currentColor" }: { size?: number; color
   );
 }
 
-const quickLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "About Us", href: "/#about" },
-  { label: "Academic Pathway", href: "/#programs" },
-  { label: "Student Life", href: "/#activities" },
-  { label: "Core Values", href: "/#values" },
-  { label: "Contact & Admissions", href: "/#contact" },
-];
-
-const programLinks = [
-  { label: "Crèche (3 Mos – 2 Yrs)", href: "/#programs" },
-  { label: "Nursery 1 – 3 (Maternelle)", href: "/#programs" },
-  { label: "Primary (P1 – P6)", href: "/#programs" },
-  { label: "Trilingual Curriculum", href: "/#about" },
-  { label: "Co-Curricular Activities", href: "/#activities" },
-  { label: "Secondary (Future Growth)", href: "/#programs" },
-];
-
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { t } = useLanguage();
+
+  const quickLinks = [
+    { label: t.footer.links.home, href: "/#home", download: false },
+    { label: t.footer.links.about, href: "/#about", download: false },
+    { label: t.footer.links.programs, href: "/#programs", download: false },
+    { label: t.footer.links.board, href: "/board", download: false },
+    { label: t.footer.links.tuition, href: "/Babyeyi 2026-2027.pdf", download: true },
+    { label: t.footer.links.form, href: "/NBSA ADMISSION FORM.pdf", download: true },
+    { label: t.footer.links.contact, href: "/#contact", download: false },
+  ];
+
+  const programLinks = [
+    { label: t.footer.sections.creche, href: "/#programs" },
+    { label: t.footer.sections.nursery, href: "/#programs" },
+    { label: t.footer.sections.primary, href: "/#programs" },
+    { label: t.footer.sections.trilingual, href: "/#about" },
+    { label: t.footer.sections.activities, href: "/#activities" },
+    { label: t.footer.sections.secondary, href: "/#programs" },
+  ];
 
   return (
     <footer className="footer-new" aria-label="Site footer">
@@ -86,8 +91,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="footer-tagline">
-              Nurturing young minds from Crèche to Primary with Rwandan moral values,
-              trilingual immersion, and world-class foundational learning in Nyagasambu.
+              {t.footer.tagline}
             </p>
 
             {/* School House Color Indicators */}
@@ -101,13 +105,19 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="footer-links-col">
-            <h3 className="footer-col-title">Quick Links</h3>
+            <h3 className="footer-col-title">{t.footer.quickLinksTitle}</h3>
             <ul className="footer-links-list">
               {quickLinks.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="footer-link">
-                    {l.label}
-                  </Link>
+                  {l.download ? (
+                    <a href={l.href} className="footer-link" download>
+                      {l.label}
+                    </a>
+                  ) : (
+                    <Link href={l.href} className="footer-link">
+                      {l.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -115,7 +125,7 @@ export default function Footer() {
 
           {/* Programs */}
           <div className="footer-links-col">
-            <h3 className="footer-col-title">Academic Sections</h3>
+            <h3 className="footer-col-title">{t.footer.academicTitle}</h3>
             <ul className="footer-links-list">
               {programLinks.map((l) => (
                 <li key={l.label}>
@@ -129,7 +139,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="footer-links-col">
-            <h3 className="footer-col-title">Campus Information</h3>
+            <h3 className="footer-col-title">{t.footer.campusTitle}</h3>
             <div className="footer-contact-list">
               <a href="tel:+250788123456" className="footer-contact-item">
                 <span className="footer-contact-icon">
@@ -158,7 +168,7 @@ export default function Footer() {
                 <span className="footer-contact-icon">
                   <ClockIcon size={15} color="var(--yellow)" />
                 </span>
-                <span>Mon–Fri: 7:00 AM – 5:00 PM</span>
+                <span>{t.footer.hours}</span>
               </div>
             </div>
           </div>
@@ -170,10 +180,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="footer-bottom-new">
           <p className="footer-copyright">
-            © {year} Nyagasambu Bright Star Academy (NBSA). All rights reserved.
+            © {year} {t.footer.copyright}
           </p>
           <p className="footer-made-with">
-            Nyagasambu, Rwanda 🇷🇼
+            {t.footer.country}
           </p>
         </div>
       </div>

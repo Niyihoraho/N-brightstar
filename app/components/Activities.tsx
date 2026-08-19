@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 /* =========================================================
    ACTIVITIES SECTION — N-BRIGHT STAR ACADEMY
@@ -46,34 +47,9 @@ function ShieldCheckIcon({ size = 22, color = "currentColor" }: { size?: number;
   );
 }
 
-const activitiesList = [
-  {
-    id: "sports",
-    icon: <TrophyIcon size={22} color="#F5B800" />,
-    title: "Sports & Athletics",
-    desc: "Competitive football, basketball, and volleyball fostering discipline, coordination, and team sportsmanship.",
-  },
-  {
-    id: "arts",
-    icon: <MusicIcon size={22} color="#F5B800" />,
-    title: "Creative Arts & Music",
-    desc: "Exploration of vocal music, traditional instruments, painting, and authentic Rwandan Imigongo art.",
-  },
-  {
-    id: "culture",
-    icon: <SparklesIcon size={22} color="#F5B800" />,
-    title: "Traditional Dance & Culture",
-    desc: "Intore cultural dance and heritage storytelling preserving Rwandan values and national pride.",
-  },
-  {
-    id: "leadership",
-    icon: <ShieldCheckIcon size={22} color="#F5B800" />,
-    title: "Scout Movement & Clubs",
-    desc: "Character development through scouting, community leadership, and trilingual literacy reading clubs.",
-  },
-];
-
 export default function Activities() {
+  const { t } = useLanguage();
+
   return (
     <section id="activities" className="activities-section-new" aria-labelledby="activities-heading">
       <div className="activities-container">
@@ -89,7 +65,7 @@ export default function Activities() {
                 className="about-eyebrow-icon"
               />
             </div>
-            <span className="about-eyebrow-text">STUDENT LIFE</span>
+            <span className="about-eyebrow-text">{t.activities.eyebrow}</span>
             <div className="about-eyebrow-icon-wrap">
               <Image
                 src="/icon-3.jpeg"
@@ -101,10 +77,10 @@ export default function Activities() {
             </div>
           </div>
           <h2 id="activities-heading" className="about-title" style={{ marginBottom: "0.75rem" }}>
-            Beyond the Classroom
+            {t.activities.title}
           </h2>
           <p className="section-lead" style={{ maxWidth: "640px", margin: "0 auto 2.5rem" }}>
-            At NBSA, learning extends far beyond textbooks. Our rich co-curricular programme nurtures talent, builds character, and celebrates Rwandan culture.
+            {t.activities.lead}
           </p>
         </div>
 
@@ -130,17 +106,24 @@ export default function Activities() {
             {/* Right Division: Activities List with Background None */}
             <div className="activities-content-col">
               <div className="activities-clean-list">
-                {activitiesList.map((item) => (
-                  <div key={item.id} className="activity-clean-row">
-                    <div className="activity-clean-icon">
-                      {item.icon}
+                {t.activities.items.map((item) => {
+                  const icon =
+                    item.id === "sports" ? <TrophyIcon size={22} color="#F5B800" /> :
+                    item.id === "arts" ? <MusicIcon size={22} color="#F5B800" /> :
+                    item.id === "culture" ? <SparklesIcon size={22} color="#F5B800" /> :
+                    <ShieldCheckIcon size={22} color="#F5B800" />;
+                  return (
+                    <div key={item.id} className="activity-clean-row">
+                      <div className="activity-clean-icon">
+                        {icon}
+                      </div>
+                      <div className="activity-clean-info">
+                        <h3 className="activity-clean-title">{item.title}</h3>
+                        <p className="activity-clean-desc">{item.desc}</p>
+                      </div>
                     </div>
-                    <div className="activity-clean-info">
-                      <h3 className="activity-clean-title">{item.title}</h3>
-                      <p className="activity-clean-desc">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>

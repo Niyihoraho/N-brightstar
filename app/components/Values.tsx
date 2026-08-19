@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 /* =========================================================
    VALUES SECTION + CTA BAND — N-BRIGHT STAR ACADEMY
@@ -74,45 +75,9 @@ function GraduationCapIcon({ size = 18, color = "currentColor" }: { size?: numbe
   );
 }
 
-const values = [
-  {
-    id: "excellence",
-    icon: <HeartIcon size={26} color="#1D5FA5" />,
-    iconBg: "val-icon-bg--blue",
-    name: "Excellence",
-    desc: "We pursue the highest academic and personal standards in everything we do.",
-  },
-  {
-    id: "integrity",
-    icon: <ShieldCheckIcon size={26} color="#3E9B4F" />,
-    iconBg: "val-icon-bg--green",
-    name: "Integrity",
-    desc: "Honesty, transparency, and ethical conduct guide every member of our community.",
-  },
-  {
-    id: "respect",
-    icon: <HandshakeIcon size={26} color="#D4A000" />,
-    iconBg: "val-icon-bg--yellow",
-    name: "Respect",
-    desc: "We value each individual — student, parent, teacher — with dignity and care.",
-  },
-  {
-    id: "responsibility",
-    icon: <UserCheckIcon size={26} color="#D8342F" />,
-    iconBg: "val-icon-bg--red",
-    name: "Responsibility",
-    desc: "Students learn to own their actions, their learning, and their community.",
-  },
-  {
-    id: "creativity",
-    icon: <LightbulbIcon size={26} color="#9c27b0" />,
-    iconBg: "val-icon-bg--purple",
-    name: "Creativity",
-    desc: "We nurture curiosity, imagination, and innovative thinking in every child.",
-  },
-];
-
 export default function Values() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* ── Values Section ── */}
@@ -130,7 +95,7 @@ export default function Values() {
                   className="about-eyebrow-icon"
                 />
               </div>
-              <span className="about-eyebrow-text">OUR CORE VALUES</span>
+              <span className="about-eyebrow-text">{t.values.eyebrow}</span>
               <div className="about-eyebrow-icon-wrap">
                 <Image
                   src="/icon-3.jpeg"
@@ -142,21 +107,29 @@ export default function Values() {
               </div>
             </div>
             <h2 id="values-heading" className="about-title" style={{ marginBottom: "0.75rem" }}>
-              What We Stand For
+              {t.values.title}
             </h2>
           </div>
 
           <div className="values-grid-new">
-            {values.map((v) => (
-              <div key={v.id} className="val-card-new">
-                {/* Topography Contour Overlay like Academic Program Cards */}
-                <div className="val-card-overlay" aria-hidden="true" />
+            {t.values.items.map((v) => {
+              const iconInfo =
+                v.id === "excellence" ? { icon: <HeartIcon size={26} color="#1D5FA5" />, iconBg: "val-icon-bg--blue" } :
+                v.id === "integrity" ? { icon: <ShieldCheckIcon size={26} color="#3E9B4F" />, iconBg: "val-icon-bg--green" } :
+                v.id === "respect" ? { icon: <HandshakeIcon size={26} color="#D4A000" />, iconBg: "val-icon-bg--yellow" } :
+                v.id === "responsibility" ? { icon: <UserCheckIcon size={26} color="#D8342F" />, iconBg: "val-icon-bg--red" } :
+                { icon: <LightbulbIcon size={26} color="#9c27b0" />, iconBg: "val-icon-bg--purple" };
+              return (
+                <div key={v.id} className="val-card-new">
+                  {/* Topography Contour Overlay like Academic Program Cards */}
+                  <div className="val-card-overlay" aria-hidden="true" />
 
-                <div className={`val-icon-new ${v.iconBg}`}>{v.icon}</div>
-                <h3 className="val-name-new">{v.name}</h3>
-                <p className="val-desc-new">{v.desc}</p>
-              </div>
-            ))}
+                  <div className={`val-icon-new ${iconInfo.iconBg}`}>{iconInfo.icon}</div>
+                  <h3 className="val-name-new">{v.name}</h3>
+                  <p className="val-desc-new">{v.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -167,20 +140,33 @@ export default function Values() {
         <div className="cta-band-container">
           <div className="cta-band-text-new">
             <h2 className="cta-band-title-new">
-              Ready to Give Your Child the Best Start?
+              {t.values.ctaTitle}
             </h2>
             <p className="cta-band-sub-new">
-              Applications are open. Join the N-Bright Star Academy family today.
+              {t.values.ctaSub}
             </p>
           </div>
           <div className="cta-band-actions">
             <a href="#contact" className="btn btn-blue btn--lg cta-band-btn" id="values-apply-btn">
               <GraduationCapIcon size={18} color="#fff" />
-              Apply for Admission
+              {t.values.applyBtn}
               <ArrowRightIcon size={16} color="#fff" />
             </a>
-            <a href="/NBSA ADMISSION FORM.pdf" className="btn btn-outline-blue btn--lg cta-band-btn" download>
-              Download Form
+            <a
+              href="/Babyeyi 2026-2027.pdf"
+              className="btn btn-outline-blue btn--lg cta-band-btn"
+              download="Babyeyi 2026-2027.pdf"
+              id="values-tuition-btn"
+            >
+              {t.values.tuitionBtn}
+            </a>
+            <a
+              href="/NBSA ADMISSION FORM.pdf"
+              className="btn btn-outline-blue btn--lg cta-band-btn"
+              download="NBSA ADMISSION FORM.pdf"
+              id="values-admission-btn"
+            >
+              {t.values.formBtn}
             </a>
           </div>
         </div>

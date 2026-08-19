@@ -4,6 +4,8 @@ import "./globals.css";
 import "./header.css";
 import "./sections.css";
 
+import { LanguageProvider } from "./context/LanguageContext";
+
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["NBSA", "N-Bright Star Academy", "Rwanda school", "Nyagasambu", "education Rwanda"],
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={outfit.variable}>
       <head>
@@ -28,7 +30,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

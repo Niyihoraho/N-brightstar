@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 /* =========================================================
    CONTACT & ADMISSIONS SECTION — N-BRIGHT STAR ACADEMY
@@ -61,6 +62,8 @@ function CheckIcon({ size = 12 }: { size?: number }) {
 }
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="contact-section-new" aria-labelledby="contact-heading">
       {/* Imigongo Background Pattern Overlay */}
@@ -79,7 +82,7 @@ export default function Contact() {
                 className="about-eyebrow-icon"
               />
             </div>
-            <span className="about-eyebrow-text">GET IN TOUCH</span>
+            <span className="about-eyebrow-text">{t.contact.eyebrow}</span>
             <div className="about-eyebrow-icon-wrap">
               <Image
                 src="/icon-3.jpeg"
@@ -91,10 +94,10 @@ export default function Contact() {
             </div>
           </div>
           <h2 id="contact-heading" className="about-title" style={{ marginBottom: "0.75rem" }}>
-            Contact & Admissions
+            {t.contact.title}
           </h2>
           <p className="section-lead" style={{ maxWidth: "600px", margin: "0 auto" }}>
-            We are always here to answer questions about admissions, our curriculum, or scheduling a campus visit.
+            {t.contact.lead}
           </p>
         </div>
 
@@ -107,7 +110,7 @@ export default function Contact() {
               <div>
                 <div className="contact-box-header">
                   <span className="contact-badge contact-badge--blue">DIRECT CONTACT</span>
-                  <h3 className="contact-box-title">Reach Our Campus</h3>
+                  <h3 className="contact-box-title">{t.contact.campusTitle}</h3>
                   <p className="contact-box-desc">
                     Call or visit our administration office in Nyagasambu during official school hours.
                   </p>
@@ -139,8 +142,8 @@ export default function Contact() {
                       <ClockIcon size={18} color="#1D5FA5" />
                     </div>
                     <div className="contact-channel-info">
-                      <span className="contact-channel-label">Working Hours</span>
-                      <span className="contact-channel-val">Mon–Fri: 7:00 AM – 5:00 PM</span>
+                      <span className="contact-channel-label">{t.contact.hoursLabel}</span>
+                      <span className="contact-channel-val">{t.contact.hoursVal}</span>
                     </div>
                   </div>
 
@@ -150,7 +153,7 @@ export default function Contact() {
                     </div>
                     <div className="contact-channel-info">
                       <span className="contact-channel-label">Location</span>
-                      <span className="contact-channel-val">Nyagasambu, Rwanda</span>
+                      <span className="contact-channel-val">{t.contact.campusLocation}</span>
                     </div>
                   </div>
                 </div>
@@ -179,60 +182,45 @@ export default function Contact() {
               <div>
                 <div className="contact-box-header">
                   <span className="contact-badge contact-badge--yellow">ENROLLMENT OPEN</span>
-                  <h3 className="contact-box-title">Apply for Admission</h3>
+                  <h3 className="contact-box-title">{t.contact.admissionsTitle}</h3>
                   <p className="contact-box-desc">
                     Enrollment is currently open across all levels from Crèche to Primary 6.
                   </p>
                 </div>
 
                 <div className="contact-admission-highlights">
-                  <div className="contact-highlight-item">
-                    <div className="contact-highlight-dot">
-                      <CheckIcon size={12} />
+                  {t.contact.steps.map((step, idx) => (
+                    <div key={idx} className="contact-highlight-item">
+                      <div className="contact-highlight-dot">
+                        <CheckIcon size={12} />
+                      </div>
+                      <div className="contact-highlight-info">
+                        <h4 className="contact-highlight-title">{step.title}</h4>
+                        <p className="contact-highlight-text">{step.text}</p>
+                      </div>
                     </div>
-                    <div className="contact-highlight-info">
-                      <h4 className="contact-highlight-title">Crèche, Nursery & Primary</h4>
-                      <p className="contact-highlight-text">
-                        Trilingual immersion (EN, FR, RW), dedicated educators, and a safe, nurturing environment.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="contact-highlight-item">
-                    <div className="contact-highlight-dot">
-                      <CheckIcon size={12} />
-                    </div>
-                    <div className="contact-highlight-info">
-                      <h4 className="contact-highlight-title">Simple Admission Process</h4>
-                      <p className="contact-highlight-text">
-                        Download the official form, fill in student details, and submit directly or via email.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="contact-highlight-item">
-                    <div className="contact-highlight-dot">
-                      <CheckIcon size={12} />
-                    </div>
-                    <div className="contact-highlight-info">
-                      <h4 className="contact-highlight-title">Parent & Learner Orientation</h4>
-                      <p className="contact-highlight-text">
-                        We welcome every family with an orientation session and guide your child into school life.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
               <div className="contact-actions-wrap">
                 <a
-                  href="/NBSA ADMISSION FORM.pdf"
+                  href="/Babyeyi 2026-2027.pdf"
                   className="btn btn-yellow btn--lg contact-btn-full"
-                  download
+                  download="Babyeyi 2026-2027.pdf"
+                  id="contact-tuition-btn"
+                >
+                  <DownloadIcon size={18} color="currentColor" />
+                  {t.contact.downloadTuitionBtn}
+                </a>
+                <a
+                  href="/NBSA ADMISSION FORM.pdf"
+                  className="btn btn-outline-blue btn--lg contact-btn-full"
+                  download="NBSA ADMISSION FORM.pdf"
                   id="contact-download-btn"
                 >
                   <DownloadIcon size={18} color="currentColor" />
-                  Download Admission Form (PDF)
+                  {t.contact.downloadFormBtn}
                 </a>
                 <a
                   href="mailto:brightstaracademyschool@gmail.com?subject=Admission%20Enquiry%20-%20NBSA"
@@ -240,7 +228,7 @@ export default function Contact() {
                   id="contact-email-btn"
                 >
                   <MailIcon size={18} color="currentColor" />
-                  Email Admissions Office
+                  {t.contact.emailBtn}
                 </a>
               </div>
             </div>

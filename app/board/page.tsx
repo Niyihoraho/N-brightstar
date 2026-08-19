@@ -1,18 +1,14 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../components/Footer";
+import { useLanguage, type Language } from "../context/LanguageContext";
 
 /* =========================================================
    BOARD PAGE — N-BRIGHT STAR ACADEMY
    Board of Governors / School Leadership
    ========================================================= */
-
-export const metadata: Metadata = {
-  title: "Board of Governors | N-Bright Star Academy",
-  description:
-    "Meet the Board of Governors and school leadership team at Nyagasambu Bright Star Academy — dedicated individuals guiding NBSA toward educational excellence in Rwanda.",
-};
 
 function ArrowLeftIcon() {
   return (
@@ -23,17 +19,9 @@ function ArrowLeftIcon() {
   );
 }
 
-function ShieldIcon({ size = 36, color = "currentColor" }: { size?: number; color?: string }) {
+function UserCircleIcon({ size = 32, color = "currentColor" }: { size?: number; color?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  );
-}
-
-function UserCircleIcon({ size = 64, color = "currentColor" }: { size?: number; color?: string }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <circle cx="12" cy="10" r="3" />
       <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
@@ -41,16 +29,64 @@ function UserCircleIcon({ size = 64, color = "currentColor" }: { size?: number; 
   );
 }
 
-function StarIcon({ size = 16, color = "currentColor" }: { size?: number; color?: string }) {
+function CheckIcon({ size = 10, color = "currentColor" }: { size?: number; color?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={color} stroke="none">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12" />
     </svg>
   );
 }
 
+function ArrowRightIcon({ size = 16, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
+
+function GraduationCapIcon({ size = 18, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+      <path d="M6 12v5c3 3 10 3 12 0v-5" />
+    </svg>
+  );
+}
+
+function TranslateIcon({ size = 16, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m5 8 6 6" />
+      <path d="m4 14 6-6 2-3" />
+      <path d="M2 5h12" />
+      <path d="M7 2h1" />
+      <path d="m22 22-5-10-5 10" />
+      <path d="M14 18h6" />
+    </svg>
+  );
+}
+
+const languages = [
+  { code: "EN", name: "English", flag: "🇬🇧" },
+  { code: "FR", name: "Français", flag: "🇫🇷" },
+];
+
+
 /* ── Board data ── */
-const boardMembers = [
+interface BoardMember {
+  id: string;
+  name: string;
+  role: string;
+  badge: string;
+  badgeLabel: string;
+  image?: string;
+  bio: string;
+  responsibilities: string[];
+}
+
+const boardMembers: BoardMember[] = [
   {
     id: "md",
     name: "Mr. NTWARI Rugazura Yannick",
@@ -68,9 +104,10 @@ const boardMembers = [
   {
     id: "principal",
     name: "Mrs. UWIMANA Claudette",
-    role: "School Principal",
+    role: "School Principal / Head Teacher",
     badge: "principal",
     badgeLabel: "Academic Leadership",
+    image: "/school head teacher.jpg",
     bio: "A dedicated educator with over a decade of teaching experience, Mrs. Uwimana oversees day-to-day academic operations, ensuring excellence in learning outcomes from Crèche through Primary Six.",
     responsibilities: [
       "Academic curriculum oversight",
@@ -147,22 +184,53 @@ const badgeColors: Record<string, { bg: string; text: string }> = {
 };
 
 export default function BoardPage() {
+  const { lang, setLang, t } = useLanguage();
+
   return (
     <>
-      {/* ── Sticky top nav echo ── */}
+      {/* ── Sticky top nav ── */}
       <header className="board-topbar">
         <div className="board-topbar-inner">
           <Link href="/" className="board-back-link">
             <ArrowLeftIcon />
-            Back to Home
+            {t.board.backHome}
           </Link>
           <Link href="/" className="board-topbar-logo">
             <Image src="/logo.png" alt="NBSA Logo" width={36} height={36} />
             <span>N-Bright Star Academy</span>
           </Link>
-          <Link href="/#contact" className="btn btn-blue btn--sm board-topbar-cta">
-            Apply Now
-          </Link>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            {/* Quick language toggle */}
+            <div className="board-lang-toggle" style={{ display: "flex", gap: "0.25rem" }}>
+              {languages.map((l) => (
+                <button
+                  key={l.code}
+                  type="button"
+                  onClick={() => setLang(l.code as Language)}
+                  style={{
+                    padding: "0.25rem 0.5rem",
+                    borderRadius: "6px",
+                    border: l.code === lang ? "1.5px solid var(--blue)" : "1px solid #e2e8f0",
+                    background: l.code === lang ? "var(--blue)" : "#ffffff",
+                    color: l.code === lang ? "#ffffff" : "var(--ink)",
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.2rem",
+                  }}
+                  title={l.name}
+                >
+                  <span>{l.flag}</span>
+                  <span>{l.code}</span>
+                </button>
+              ))}
+            </div>
+            <Link href="/#contact" className="btn btn-blue btn--sm board-topbar-cta">
+              {t.board.applyNow}
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -171,99 +239,149 @@ export default function BoardPage() {
         <section className="board-hero">
           <div className="board-hero-bg-overlay" aria-hidden="true" />
           <div className="board-hero-content">
-            <div className="board-hero-icon">
-              <ShieldIcon size={44} color="var(--yellow)" />
+            {/* Eyebrow with Left & Right Imigongo Diamond Icons matching AboutUs */}
+            <div className="about-eyebrow" style={{ justifyContent: "center" }}>
+
+              <span className="about-eyebrow-text" style={{ color: "var(--yellow)" }}>
+                {t.board.heroEyebrow}
+              </span>
+
             </div>
-            <div className="eyebrow eyebrow--white">
-              <span className="eyebrow-dot eyebrow-dot--yellow" />
-              Governance &amp; Leadership
-            </div>
+
+            {/* Main Headline */}
             <h1 className="board-hero-title">
-              Board of Governors
+              {t.board.heroTitle}
             </h1>
+
             <p className="board-hero-sub">
-              Meet the dedicated leaders who guide N-Bright Star Academy toward educational
-              excellence, integrity, and a bright future for every child in Nyagasambu.
+              {t.board.heroSub}
             </p>
           </div>
         </section>
 
-        {/* ── Mission Strip ── */}
+        {/* ── Mission / Metric Strip ── */}
         <div className="board-mission-strip">
           <div className="board-mission-inner">
             <div className="board-mission-item">
               <span className="board-mission-num">5+</span>
-              <span className="board-mission-label">Years of Leadership</span>
+              <span className="board-mission-label">{t.board.stats.years}</span>
             </div>
             <div className="board-mission-divider" />
             <div className="board-mission-item">
               <span className="board-mission-num">6</span>
-              <span className="board-mission-label">Board Members</span>
+              <span className="board-mission-label">{t.board.stats.members}</span>
             </div>
             <div className="board-mission-divider" />
             <div className="board-mission-item">
               <span className="board-mission-num">300+</span>
-              <span className="board-mission-label">Students Served</span>
+              <span className="board-mission-label">{t.board.stats.students}</span>
             </div>
             <div className="board-mission-divider" />
             <div className="board-mission-item">
               <span className="board-mission-num">100%</span>
-              <span className="board-mission-label">Committed to Excellence</span>
+              <span className="board-mission-label">{t.board.stats.commitment}</span>
             </div>
           </div>
         </div>
 
         {/* ── Board members grid ── */}
         <section className="board-members-section">
+          <div className="board-members-bg-overlay" aria-hidden="true" />
           <div className="board-members-container">
+            {/* Section Header with Left & Right Imigongo Icons */}
             <div className="board-section-header">
-              <div className="eyebrow">
-                <span className="eyebrow-dot" />
-                Leadership Team
+              <div className="about-eyebrow" style={{ justifyContent: "center" }}>
+                <div className="about-eyebrow-icon-wrap">
+                  <Image
+                    src="/icon-3.jpeg"
+                    alt="Imigongo icon"
+                    width={20}
+                    height={20}
+                    className="about-eyebrow-icon"
+                  />
+                </div>
+                <span className="about-eyebrow-text">{t.board.teamEyebrow}</span>
+                <div className="about-eyebrow-icon-wrap">
+                  <Image
+                    src="/icon-3.jpeg"
+                    alt="Imigongo icon"
+                    width={20}
+                    height={20}
+                    className="about-eyebrow-icon"
+                  />
+                </div>
               </div>
-              <h2 className="section-title">The People Behind NBSA</h2>
-              <p className="section-lead">
-                Our board members bring diverse expertise — from education and administration
-                to finance and student welfare — all united by a shared mission.
+              <h2 className="about-title" style={{ marginBottom: "0.75rem" }}>
+                {t.board.teamTitle}
+              </h2>
+              <p className="section-lead" style={{ maxWidth: "640px", margin: "0 auto" }}>
+                {t.board.teamLead}
               </p>
             </div>
 
+            {/* Board Cards Grid with Topography Overlay */}
             <div className="board-grid">
               {boardMembers.map((member) => {
                 const colors = badgeColors[member.badge];
                 return (
                   <article key={member.id} className="board-card">
-                    {/* Avatar */}
-                    <div className="board-card-avatar" style={{ background: `${colors.bg}15` }}>
-                      <UserCircleIcon size={64} color={colors.bg} />
-                    </div>
+                    {/* Topography Contour Background Overlay */}
+                    <div className="board-card-overlay" aria-hidden="true" />
 
-                    {/* Badge */}
-                    <span
-                      className="board-card-badge"
-                      style={{ background: colors.bg, color: colors.text }}
-                    >
-                      {member.badgeLabel}
-                    </span>
+                    <div className="board-card-content">
+                      {/* Top Header: Avatar & Category Badge */}
+                      <div className="board-card-header">
+                        <div className="board-card-avatar-wrap">
+                          <div className="board-card-avatar" style={{ background: `${colors.bg}14` }}>
+                            {member.image ? (
+                              <Image
+                                src={member.image}
+                                alt={member.name}
+                                width={58}
+                                height={58}
+                                className="board-card-avatar-img"
+                              />
+                            ) : (
+                              <UserCircleIcon size={34} color={colors.bg} />
+                            )}
+                          </div>
+                        </div>
+                        <span
+                          className="board-card-badge"
+                          style={{ background: colors.bg, color: colors.text }}
+                        >
+                          {member.badgeLabel}
+                        </span>
+                      </div>
 
-                    {/* Name + role */}
-                    <h3 className="board-card-name">{member.name}</h3>
-                    <p className="board-card-role">{member.role}</p>
+                      {/* Name + Role */}
+                      <div className="board-card-titles">
+                        <h3 className="board-card-name">{member.name}</h3>
+                        <span className="board-card-role" style={{ color: colors.bg }}>
+                          {member.role}
+                        </span>
+                      </div>
 
-                    {/* Bio */}
-                    <p className="board-card-bio">{member.bio}</p>
+                      {/* Bio */}
+                      <p className="board-card-bio">{member.bio}</p>
 
-                    {/* Responsibilities */}
-                    <div className="board-card-responsibilities">
-                      <p className="board-resp-title">Key Responsibilities</p>
-                      <ul className="board-resp-list">
-                        {member.responsibilities.map((r) => (
-                          <li key={r} className="board-resp-item">
-                            <StarIcon size={10} color={colors.bg} />
-                            {r}
-                          </li>
-                        ))}
-                      </ul>
+                      {/* Responsibilities Box */}
+                      <div className="board-card-responsibilities">
+                        <p className="board-resp-title">{t.board.keyRespTitle}</p>
+                        <ul className="board-resp-list">
+                          {member.responsibilities.map((r, idx) => (
+                            <li key={idx} className="board-resp-item">
+                              <span
+                                className="board-resp-dot"
+                                style={{ background: `${colors.bg}15`, color: colors.bg }}
+                              >
+                                <CheckIcon size={10} color={colors.bg} />
+                              </span>
+                              <span>{r}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </article>
                 );
@@ -274,24 +392,45 @@ export default function BoardPage() {
 
         {/* ── Governance Principles ── */}
         <section className="board-principles-section">
+          <div className="board-principles-bg-overlay" aria-hidden="true" />
           <div className="board-principles-container">
+            {/* Section Header with Left & Right Imigongo Icons */}
             <div className="board-section-header">
-              <div className="eyebrow">
-                <span className="eyebrow-dot" />
-                Our Governance Commitment
+              <div className="about-eyebrow" style={{ justifyContent: "center" }}>
+                <div className="about-eyebrow-icon-wrap">
+                  <Image
+                    src="/icon-3.jpeg"
+                    alt="Imigongo icon"
+                    width={20}
+                    height={20}
+                    className="about-eyebrow-icon"
+                  />
+                </div>
+                <span className="about-eyebrow-text">{t.board.governanceEyebrow}</span>
+                <div className="about-eyebrow-icon-wrap">
+                  <Image
+                    src="/icon-3.jpeg"
+                    alt="Imigongo icon"
+                    width={20}
+                    height={20}
+                    className="about-eyebrow-icon"
+                  />
+                </div>
               </div>
-              <h2 className="section-title">How We Lead</h2>
+              <h2 className="about-title" style={{ marginBottom: "0.75rem" }}>
+                {t.board.governanceTitle}
+              </h2>
             </div>
+
+            {/* Principle Cards with Topography Overlay */}
             <div className="board-principles-grid">
-              {[
-                { title: "Transparency", desc: "Regular reporting to parents, staff, and the community on academic performance, finances, and school policies." },
-                { title: "Accountability", desc: "Every board member is accountable to the school community and to the children in our care." },
-                { title: "Inclusivity", desc: "We listen to parents, teachers, and students — all voices shape our decisions and school direction." },
-                { title: "Continuous Improvement", desc: "We benchmark against national and international standards to constantly raise the bar for our students." },
-              ].map((p) => (
+              {t.board.principles.map((p) => (
                 <div key={p.title} className="board-principle-card">
-                  <h3 className="board-principle-title">{p.title}</h3>
-                  <p className="board-principle-desc">{p.desc}</p>
+                  <div className="board-principle-overlay" aria-hidden="true" />
+                  <div className="board-principle-content">
+                    <h3 className="board-principle-title">{p.title}</h3>
+                    <p className="board-principle-desc">{p.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -299,18 +438,20 @@ export default function BoardPage() {
         </section>
 
         {/* ── CTA Band ── */}
-        <div className="board-cta-band">
+        <div className="board-cta-band" aria-label="Call to action">
           <div className="board-cta-inner">
             <div>
-              <h2 className="board-cta-title">Ready to Join Our School Family?</h2>
-              <p className="board-cta-sub">Applications for 2025/2026 are open now.</p>
+              <h2 className="board-cta-title">{t.board.ctaTitle}</h2>
+              <p className="board-cta-sub">{t.board.ctaSub}</p>
             </div>
             <div className="board-cta-actions">
-              <Link href="/#contact" className="btn btn-blue btn--lg">
-                Apply for Admission
+              <Link href="/#contact" className="btn btn-yellow btn--lg">
+                <GraduationCapIcon size={18} color="var(--ink)" />
+                {t.board.applyBtn}
+                <ArrowRightIcon size={16} color="var(--ink)" />
               </Link>
-              <Link href="/" className="btn btn-outline-blue btn--lg">
-                Back to Home
+              <Link href="/" className="btn btn-outline-blue btn--lg" style={{ borderColor: "rgba(255,255,255,0.4)", color: "#ffffff" }}>
+                {t.board.backBtn}
               </Link>
             </div>
           </div>

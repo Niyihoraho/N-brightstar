@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useCallback, useRef } from "react";
+import { useLanguage, type Language } from "../context/LanguageContext";
 
 /* =========================================================
    SVG Icon Components — replacing emojis with clean SVGs
@@ -18,9 +19,9 @@ function TranslateIcon({ size = 18, color = "currentColor" }: { size?: number; c
 
 const languages = [
   { code: "EN", name: "English", flag: "🇬🇧" },
-  { code: "RW", name: "Kinyarwanda", flag: "🇷🇼" },
   { code: "FR", name: "Français", flag: "🇫🇷" },
 ];
+
 
 function PhoneIcon({ size = 16, color = "currentColor" }: { size?: number; color?: string }) {
   return (
@@ -147,7 +148,8 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState(languages[0]);
+  const { lang, setLang, t } = useLanguage();
+  const selectedLang = languages.find((l) => l.code === lang) || languages[0];
   const langDropdownRef = useRef<HTMLDivElement>(null);
 
   // Close language dropdown on click outside
@@ -183,13 +185,13 @@ function Navbar() {
   const closeMenu = useCallback(() => setMobileOpen(false), []);
 
   const navItems = [
-    { label: "Home", href: "#home", external: false },
-    { label: "About Us", href: "#about", external: false },
-    { label: "Programs", href: "#programs", external: false },
-    { label: "Activities", href: "#activities", external: false },
-    { label: "Values", href: "#values", external: false },
-    { label: "Board", href: "/board", external: true },
-    { label: "Contact", href: "#contact", external: false },
+    { label: t.nav.home, href: "#home", external: false },
+    { label: t.nav.about, href: "#about", external: false },
+    { label: t.nav.programs, href: "#programs", external: false },
+    { label: t.nav.activities, href: "#activities", external: false },
+    { label: t.nav.values, href: "#values", external: false },
+    { label: t.nav.board, href: "/board", external: true },
+    { label: t.nav.contact, href: "#contact", external: false },
   ];
 
   return (
@@ -210,7 +212,7 @@ function Navbar() {
           <nav aria-label="Main menu" className="nav-desktop">
             <ul className="nav-links">
               {navItems.map((item) => (
-                <li key={item.label}>
+                <li key={item.href}>
                   {item.external ? (
                     <Link href={item.href}>{item.label}</Link>
                   ) : (
@@ -242,22 +244,22 @@ function Navbar() {
 
               {langOpen && (
                 <div className="lang-dropdown" role="menu">
-                  {languages.map((lang) => (
+                  {languages.map((l) => (
                     <button
-                      key={lang.code}
+                      key={l.code}
                       type="button"
-                      className={`lang-option${lang.code === selectedLang.code ? " lang-option--active" : ""}`}
+                      className={`lang-option${l.code === selectedLang.code ? " lang-option--active" : ""}`}
                       onClick={() => {
-                        setSelectedLang(lang);
+                        setLang(l.code as Language);
                         setLangOpen(false);
                       }}
                       role="menuitem"
                     >
                       <div className="lang-option-left">
-                        <span className="lang-flag">{lang.flag}</span>
-                        <span className="lang-name">{lang.name}</span>
+                        <span className="lang-flag">{l.flag}</span>
+                        <span className="lang-name">{l.name}</span>
                       </div>
-                      <span className="lang-tag">{lang.code}</span>
+                      <span className="lang-tag">{l.code}</span>
                     </button>
                   ))}
                 </div>
@@ -265,7 +267,7 @@ function Navbar() {
             </div>
 
             <a href="#contact" className="btn btn-blue btn--sm" id="nav-apply-btn">
-              Apply Now
+              {t.nav.applyNow}
             </a>
           </div>
 
@@ -308,7 +310,7 @@ function Navbar() {
 
         <ul className="mobile-nav-links">
           {navItems.map((item) => (
-            <li key={item.label}>
+            <li key={item.href}>
               {item.external ? (
                 <Link href={item.href} onClick={closeMenu}>
                   {item.label}
@@ -329,23 +331,23 @@ function Navbar() {
               <span>Language:</span>
             </div>
             <div className="mobile-drawer-lang">
-              {languages.map((lang) => (
+              {languages.map((l) => (
                 <button
-                  key={lang.code}
+                  key={l.code}
                   type="button"
-                  className={`mobile-lang-btn${lang.code === selectedLang.code ? " mobile-lang-btn--active" : ""}`}
-                  onClick={() => setSelectedLang(lang)}
+                  className={`mobile-lang-btn${l.code === selectedLang.code ? " mobile-lang-btn--active" : ""}`}
+                  onClick={() => setLang(l.code as Language)}
                 >
-                  <span>{lang.flag}</span>
-                  <span>{lang.code}</span>
+                  <span>{l.flag}</span>
+                  <span>{l.code}</span>
                 </button>
               ))}
             </div>
           </div>
 
-          <a href="#contact" className="btn btn-blue" onClick={closeMenu}>
-            <GraduationCapIcon size={16} />
-            Apply Now
+          <a href="#contact" className="btn btn-blue btn--full" onClick={closeMenu}>
+            <GraduationCapIcon size={16} color="#fff" />
+            {t.nav.applyNow}
           </a>
         </div>
 
@@ -370,6 +372,7 @@ function Navbar() {
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const { t } = useLanguage();
 
   // Auto-advance carousel (10 seconds per slide)
   useEffect(() => {
@@ -422,18 +425,17 @@ function Hero() {
       <div className="hero-content">
         <div className="hero-text-col">
           <h1 id="hero-heading" className="hero-title anim-up d1">
-            Where Young Minds
-            <span className="hero-title-accent"> Rise &amp; Shine</span>
+            {t.hero.title}
           </h1>
 
           <p className="hero-body anim-up d2">
-            Nurturing children from Crèche to Primary with Rwandan values and excellence.
+            {t.hero.subtitle}
           </p>
 
           <div className="hero-actions anim-up d3">
             <a href="#contact" className="btn btn-yellow btn--lg" id="hero-apply-btn">
               <GraduationCapIcon size={18} color="var(--ink)" />
-              Apply for Admission
+              {t.hero.applyBtn}
               <ArrowRightIcon size={16} color="var(--ink)" />
             </a>
           </div>

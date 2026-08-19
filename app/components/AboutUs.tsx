@@ -1,20 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 /* =========================================================
    ABOUT US COMPONENT
    N-BRIGHT STAR ACADEMY — Enhanced with highlights + stat badge
    ========================================================= */
 
-const highlights = [
-  "Trilingual Education",
-  "Crèche to Primary",
-  "Rwandan Values",
-  "Safe & Nurturing",
-];
-
 export default function AboutUs() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="about-section" aria-labelledby="about-heading">
       {/* Imigongo Background Pattern Overlay */}
@@ -35,7 +31,7 @@ export default function AboutUs() {
                   className="about-eyebrow-icon"
                 />
               </div>
-              <span className="about-eyebrow-text">ABOUT US</span>
+              <span className="about-eyebrow-text">{t.about.eyebrow}</span>
               <div className="about-eyebrow-icon-wrap">
                 <Image
                   src="/icon-3.jpeg"
@@ -49,21 +45,18 @@ export default function AboutUs() {
 
             {/* Main Headline */}
             <h2 id="about-heading" className="about-title">
-              A World-Class Education <br className="about-title-br" />
-              For Every Learner
+              {t.about.title}
             </h2>
 
             {/* Summarized Paragraph */}
             <p className="about-desc">
-              Nyagasambu Bright Star Academy (NBSA) provides premier Crèche to Primary
-              education in Rwanda, empowering young learners through trilingual fluency,
-              academic excellence, and strong moral character in a safe, inspiring environment.
+              {t.about.desc}
             </p>
 
             {/* CTA Button */}
             <div className="about-actions">
               <a href="#contact" className="btn btn-yellow btn--lg" id="about-learn-more-btn">
-                Learn More About Us
+                {t.about.ctaBtn}
               </a>
             </div>
           </div>

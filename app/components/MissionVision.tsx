@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 /* =========================================================
    MISSION & CORE VALUES SECTION — N-BRIGHT STAR ACADEMY
@@ -27,26 +28,9 @@ function CheckIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-const coreValues = [
-  {
-    title: "Integrity & Ethics",
-    desc: "Responsible, respectful, and guided by strong moral principles.",
-  },
-  {
-    title: "Intellectual Curiosity",
-    desc: "Critical thinker, creative, innovative, and reflective.",
-  },
-  {
-    title: "Inclusivity & Respect",
-    desc: "Caring, collaborative, and welcoming of diversity.",
-  },
-  {
-    title: "Excellence",
-    desc: "Pursuing the highest academic and personal standards.",
-  },
-];
-
 export default function MissionVision() {
+  const { t } = useLanguage();
+
   return (
     <section id="mission-values" className="mission-section" aria-labelledby="mission-card-heading">
       {/* Imigongo Background Pattern Overlay (matching AboutUs opacity) */}
@@ -62,12 +46,10 @@ export default function MissionVision() {
             <div className="mission-card-body">
               <div className="mission-card-content">
                 <h2 id="mission-card-heading" className="mission-card-title">
-                  Mission
+                  {t.mission.missionTitle}
                 </h2>
                 <p className="mission-card-text">
-                  Nyagasambu Bright Star Academy provides an outstanding educational experience
-                  that fosters intellectual, social, emotional, and physical growth in a safe,
-                  inspiring, and inclusive environment.
+                  {t.mission.missionDesc}
                 </p>
 
               </div>
@@ -94,9 +76,9 @@ export default function MissionVision() {
 
             <div className="mission-card-body">
               <div className="mission-card-content">
-                <h2 className="mission-card-title">Core Values</h2>
+                <h2 className="mission-card-title">{t.mission.valuesTitle}</h2>
                 <ul className="mission-values-list">
-                  {coreValues.map((val, idx) => (
+                  {t.mission.values.map((val, idx) => (
                     <li key={idx} className="mission-value-item">
                       <div className="mission-val-icon-wrap">
                         <CheckIcon size={18} />
