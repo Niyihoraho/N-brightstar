@@ -87,7 +87,7 @@
   top: 0;
   z-index: 1000;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .navbar::before {
@@ -233,6 +233,190 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
+}
+
+/* =====================================================
+   LANGUAGE SWITCHER — Desktop dropdown
+   ===================================================== */
+.lang-switcher-wrap {
+  position: relative;
+}
+
+.lang-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: transparent;
+  border: 1.5px solid rgba(29, 95, 165, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+.lang-switcher-btn:hover,
+.lang-switcher-btn:focus-visible {
+  background: var(--blue-light);
+  border-color: var(--blue);
+  outline: none;
+}
+
+.lang-code {
+  line-height: 1;
+}
+
+.lang-chevron {
+  display: flex;
+  align-items: center;
+  color: var(--blue);
+  opacity: 0.7;
+  transition: transform 0.25s ease;
+}
+
+.lang-switcher-btn[aria-expanded="true"] .lang-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid rgba(228, 236, 245, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(29, 95, 165, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 1100;
+  animation: langDropIn 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes langDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Individual language options */
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 0.84rem;
+  color: var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+  text-align: left;
+}
+
+.lang-option:hover {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.lang-option--active {
+  background: var(--blue-light);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.lang-option-left {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.lang-flag {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.lang-name {
+  font-size: 0.84rem;
+}
+
+.lang-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(29, 95, 165, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.lang-option--active .lang-tag {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* =====================================================
+   LANGUAGE SWITCHER — Mobile drawer
+   ===================================================== */
+.mobile-drawer-lang-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-drawer-lang-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.mobile-drawer-lang {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mobile-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  background: var(--blue-light);
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  transition: all 0.2s ease;
+}
+
+.mobile-lang-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.mobile-lang-btn--active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
 }
 
 .btn--sm {

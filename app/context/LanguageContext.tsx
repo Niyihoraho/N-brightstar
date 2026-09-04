@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
@@ -227,16 +227,16 @@ export const translations: Record<Language, TranslationDictionary> = {
           id: "creche",
           name: "Crèche",
           level: "Day Care Section",
-          age: "3 Mos – 2 Yrs",
+          age: "1.5 – 2 Years",
           summary:
-            "Safe, loving infant care focused on sensory discovery, motor skills, and nurturing daily routines.",
+            "Safe, loving early childhood care focused on sensory discovery, motor skills, and nurturing daily routines.",
           points: ["Certified Caregivers", "Sensory & Play Care", "Safe & Monitored"],
         },
         {
           id: "nursery",
           name: "Nursery",
           level: "Maternelle Section",
-          age: "2 – 6 Years",
+          age: "3 – 6 Years",
           summary:
             "Trilingual immersion in English, French & Kinyarwanda fostering literacy, numeracy, and creativity.",
           points: ["Trilingual Immersion", "Phonics & Numbers", "Creative Arts & Play"],
@@ -245,7 +245,7 @@ export const translations: Record<Language, TranslationDictionary> = {
           id: "primary",
           name: "Primary",
           level: "Primary Section (P1–P6)",
-          age: "6 – 13 Years",
+          age: "7+ Years",
           summary:
             "National REB curriculum excellence fostering academic mastery, digital literacy, and leadership.",
           points: ["P1 to P6 REB Standard", "STEM & ICT Literacy", "Clubs & Sports"],
@@ -365,7 +365,7 @@ export const translations: Record<Language, TranslationDictionary> = {
         contact: "Contact & Admissions",
       },
       sections: {
-        creche: "Crèche (3 Mos – 2 Yrs)",
+        creche: "Crèche (1.5 – 2 Yrs)",
         nursery: "Nursery 1 – 3 (Maternelle)",
         primary: "Primary (P1 – P6)",
         trilingual: "Trilingual Curriculum",
@@ -487,16 +487,16 @@ export const translations: Record<Language, TranslationDictionary> = {
           id: "creche",
           name: "Crèche",
           level: "Section Garderie",
-          age: "3 Mois – 2 Ans",
+          age: "1.5 – 2 Ans",
           summary:
-            "Soins attentifs et bienveillants pour nourrissons axés sur l'éveil sensoriel, la motricité et des routines quotidiennes rassurantes.",
+            "Soins attentifs et bienveillants pour jeunes enfants axés sur l'éveil sensoriel, la motricité et des routines quotidiennes rassurantes.",
           points: ["Éducateurs Qualifiés", "Éveil & Soins Sensoriels", "Sécurité & Surveillance"],
         },
         {
           id: "nursery",
           name: "Maternelle",
           level: "Section Maternelle",
-          age: "2 – 6 Ans",
+          age: "3 – 6 Ans",
           summary:
             "Immersion trilingue en français, anglais et kinyarwanda favorisant l'alphabétisation précoce, les chiffres et la créativité.",
           points: ["Immersion Trilingue", "Phonétique & Nombres", "Arts Créatifs & Jeux"],
@@ -505,7 +505,7 @@ export const translations: Record<Language, TranslationDictionary> = {
           id: "primary",
           name: "Primaire",
           level: "Section Primaire (P1–P6)",
-          age: "6 – 13 Ans",
+          age: "7+ Ans",
           summary:
             "Excellence du programme national REB favorisant la maîtrise académique, les compétences numériques et le leadership.",
           points: ["Norme REB P1 à P6", "Informatique & Sciences (STEM)", "Clubs & Sports"],
@@ -625,7 +625,7 @@ export const translations: Record<Language, TranslationDictionary> = {
         contact: "Contact & Admissions",
       },
       sections: {
-        creche: "Crèche (3 Mois – 2 Ans)",
+        creche: "Crèche (1.5 – 2 Ans)",
         nursery: "Maternelle 1 – 3",
         primary: "Primaire (P1 – P6)",
         trilingual: "Curriculum Trilingue",

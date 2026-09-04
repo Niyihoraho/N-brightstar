@@ -1246,36 +1246,52 @@ a.contact-channel-item:hover {
   max-width: 360px;
 }
 
-.footer-house-colors {
+.footer-social-icons {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.footer-house-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 4px;
-  transition: transform 0.2s ease;
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: #fff;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
 }
 
-.footer-house-dot:hover {
-  transform: scale(1.2);
+.footer-social-link:hover {
+  transform: scale(1.12);
+  filter: brightness(1.15);
 }
 
-.footer-house-dot--blue {
+.footer-social-link--disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.footer-social-link--disabled:hover {
+  transform: none;
+  filter: none;
+}
+
+.footer-social-link--blue {
   background: #2B72BE;
 }
 
-.footer-house-dot--yellow {
+.footer-social-link--yellow {
   background: #F5B800;
 }
 
-.footer-house-dot--green {
+.footer-social-link--green {
   background: #3E9B4F;
 }
 
-.footer-house-dot--red {
+.footer-social-link--red {
   background: #D8342F;
 }
 

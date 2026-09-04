@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   description:
     "Nyagasambu Bright Star Academy (NBSA) — A leading institution of educational excellence in Rwanda, nurturing young minds from Crèche to Primary. Excellence begins with you!",
   keywords: ["NBSA", "N-Bright Star Academy", "Rwanda school", "Nyagasambu", "education Rwanda"],
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+    shortcut: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

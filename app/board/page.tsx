@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 import Footer from "../components/Footer";
 import { useLanguage, type Language } from "../context/LanguageContext";
 
@@ -57,13 +58,16 @@ function GraduationCapIcon({ size = 18, color = "currentColor" }: { size?: numbe
 
 function TranslateIcon({ size = 16, color = "currentColor" }: { size?: number; color?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m5 8 6 6" />
-      <path d="m4 14 6-6 2-3" />
-      <path d="M2 5h12" />
-      <path d="M7 2h1" />
-      <path d="m22 22-5-10-5 10" />
-      <path d="M14 18h6" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color} stroke="none">
+      <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+    </svg>
+  );
+}
+
+function ChevronDownIcon({ size = 16, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m6 9 6 6 6-6" />
     </svg>
   );
 }
@@ -185,6 +189,20 @@ const badgeColors: Record<string, { bg: string; text: string }> = {
 
 export default function BoardPage() {
   const { lang, setLang, t } = useLanguage();
+  const [langOpen, setLangOpen] = useState(false);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
+  const selectedLang = languages.find((l) => l.code === lang) || languages[0];
+
+  // Close language dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -200,33 +218,47 @@ export default function BoardPage() {
             <span>N-Bright Star Academy</span>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            {/* Quick language toggle */}
-            <div className="board-lang-toggle" style={{ display: "flex", gap: "0.25rem" }}>
-              {languages.map((l) => (
-                <button
-                  key={l.code}
-                  type="button"
-                  onClick={() => setLang(l.code as Language)}
-                  style={{
-                    padding: "0.25rem 0.5rem",
-                    borderRadius: "6px",
-                    border: l.code === lang ? "1.5px solid var(--blue)" : "1px solid #e2e8f0",
-                    background: l.code === lang ? "var(--blue)" : "#ffffff",
-                    color: l.code === lang ? "#ffffff" : "var(--ink)",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.2rem",
-                  }}
-                  title={l.name}
-                >
-                  <span>{l.flag}</span>
-                  <span>{l.code}</span>
-                </button>
-              ))}
+            {/* Language Dropdown — same design as main navbar */}
+            <div className="lang-switcher-wrap" ref={langDropdownRef}>
+              <button
+                type="button"
+                className="lang-switcher-btn"
+                onClick={() => setLangOpen((prev) => !prev)}
+                aria-expanded={langOpen}
+                aria-haspopup="true"
+                aria-label="Change language"
+              >
+                <TranslateIcon size={16} color="var(--blue)" />
+                <span className="lang-code">{selectedLang.code}</span>
+                <span className="lang-chevron">
+                  <ChevronDownIcon size={12} />
+                </span>
+              </button>
+
+              {langOpen && (
+                <div className="lang-dropdown" role="menu">
+                  {languages.map((l) => (
+                    <button
+                      key={l.code}
+                      type="button"
+                      className={`lang-option${l.code === selectedLang.code ? " lang-option--active" : ""}`}
+                      onClick={() => {
+                        setLang(l.code as Language);
+                        setLangOpen(false);
+                      }}
+                      role="menuitem"
+                    >
+                      <div className="lang-option-left">
+                        <span className="lang-flag">{l.flag}</span>
+                        <span className="lang-name">{l.name}</span>
+                      </div>
+                      <span className="lang-tag">{l.code}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
+
             <Link href="/#contact" className="btn btn-blue btn--sm board-topbar-cta">
               {t.board.applyNow}
             </Link>
