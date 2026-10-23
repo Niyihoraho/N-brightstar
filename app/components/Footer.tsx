@@ -53,6 +53,7 @@ export default function Footer() {
     { label: t.footer.links.home, href: "/#home", download: false },
     { label: t.footer.links.about, href: "/#about", download: false },
     { label: t.footer.links.programs, href: "/#programs", download: false },
+    { label: t.footer.links.gallery, href: "/#gallery", download: false },
     { label: t.footer.links.board, href: "/board", download: false },
     { label: t.footer.links.tuition, href: "/Babyeyi 2026-2027.pdf", download: true },
     { label: t.footer.links.form, href: "/NBSA ADMISSION FORM.pdf", download: true },

@@ -2324,3 +2324,506 @@ a.footer-contact-item:hover {
     min-height: 230px;
   }
 }
+
+/* =====================================================
+   SCHOOL LIFE GALLERY SECTION — N-BRIGHT STAR ACADEMY
+   ===================================================== */
+.gallery-section {
+  position: relative;
+  padding: 5.5rem 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.gallery-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg-imigongo.jpeg');
+  background-repeat: repeat;
+  background-size: 380px auto;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gallery-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+/* Filter Pills */
+.gallery-filter-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.gallery-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--ink-light);
+  border: 1.5px solid var(--border);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.gallery-filter-btn:hover {
+  border-color: var(--blue-mid);
+  color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.gallery-filter-btn--active {
+  background: var(--blue);
+  color: #ffffff;
+  border-color: var(--blue);
+  box-shadow: 0 4px 14px rgba(29, 95, 165, 0.25);
+}
+
+.gallery-filter-btn--active:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+  border-color: var(--blue-dark);
+}
+
+.gallery-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  color: inherit;
+}
+
+.gallery-filter-btn--active .gallery-filter-count {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+/* ── Solid Editorial Masonry Grid — Every Photo Shown Whole ── */
+.gallery-masonry-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+}
+
+.gallery-card {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card:focus-visible {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(245, 184, 0, 0.35);
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(29, 95, 165, 0.12);
+}
+
+.gallery-card--blue:hover {
+  border-color: var(--blue);
+}
+.gallery-card--yellow:hover {
+  border-color: var(--yellow);
+}
+.gallery-card--green:hover {
+  border-color: var(--green);
+}
+.gallery-card--red:hover {
+  border-color: var(--red);
+}
+
+/* Photo Frame: Native Aspect Ratio (Zero Crop) */
+.gallery-card-media {
+  position: relative;
+  width: 100%;
+  background: #f8fafc;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.gallery-card-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover .gallery-card-photo {
+  transform: scale(1.025);
+}
+
+/* Hover Action Tag */
+.gallery-card-hover-hint {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--blue-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.gallery-card:hover .gallery-card-hover-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Solid Card Body */
+.gallery-card-body {
+  padding: 1.35rem 1.45rem 1.45rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+/* Category Badge with Colored Dot */
+.gallery-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.gallery-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gallery-badge--blue {
+  background: #e6f0f9;
+  color: #1d5fa5;
+}
+.gallery-badge--blue .gallery-badge-dot {
+  background: #1d5fa5;
+}
+
+.gallery-badge--yellow {
+  background: #fdf3d8;
+  color: #854d0e;
+}
+.gallery-badge--yellow .gallery-badge-dot {
+  background: #f5b800;
+}
+
+.gallery-badge--green {
+  background: #e5f3e7;
+  color: #166534;
+}
+.gallery-badge--green .gallery-badge-dot {
+  background: #3e9b4f;
+}
+
+.gallery-badge--red {
+  background: #fae4e3;
+  color: #b91c1c;
+}
+.gallery-badge--red .gallery-badge-dot {
+  background: #d8342f;
+}
+
+.gallery-card-expand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.gallery-card:hover .gallery-card-expand-icon {
+  background: var(--blue-light);
+  transform: scale(1.1);
+}
+
+.gallery-card-title {
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.gallery-card:hover .gallery-card-title {
+  color: var(--blue);
+}
+
+.gallery-card-desc {
+  color: var(--ink-light);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* =====================================================
+   LIGHTBOX MODAL
+   ===================================================== */
+.gallery-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 20, 38, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: lightboxFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-lightbox-container {
+  position: relative;
+  max-width: 980px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gallery-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+}
+
+.gallery-lightbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gallery-lightbox-counter {
+  color: var(--ink-muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.gallery-lightbox-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gallery-lightbox-close:hover {
+  background: #e2e8f0;
+  color: var(--red);
+  transform: scale(1.08);
+}
+
+.gallery-lightbox-media-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  min-height: 340px;
+  max-height: 70vh;
+  padding: 0.75rem;
+}
+
+.gallery-lightbox-img-box {
+  position: relative;
+  max-width: 100%;
+  max-height: 66vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-lightbox-img {
+  max-width: 100%;
+  max-height: 66vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--blue-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.gallery-lightbox-nav:hover {
+  background: #ffffff;
+  color: var(--blue);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-lightbox-nav--prev {
+  left: 1.25rem;
+}
+
+.gallery-lightbox-nav--next {
+  right: 1.25rem;
+}
+
+.gallery-lightbox-caption {
+  padding: 1.25rem 1.75rem 1.4rem;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+}
+
+.gallery-lightbox-title {
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.gallery-lightbox-desc {
+  color: var(--ink-light);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Responsive Queries for Masonry Gallery ── */
+@media (max-width: 960px) {
+  .gallery-masonry-grid {
+    column-count: 2;
+    column-gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-section {
+    padding: 3.75rem 0;
+  }
+
+  .gallery-container {
+    padding: 0 1.25rem;
+  }
+
+  .gallery-masonry-grid {
+    column-count: 1;
+  }
+
+  .gallery-card {
+    margin-bottom: 1.25rem;
+  }
+
+  .gallery-lightbox-overlay {
+    padding: 0.75rem;
+  }
+
+  .gallery-lightbox-nav {
+    width: 38px;
+    height: 38px;
+  }
+
+  .gallery-lightbox-nav--prev {
+    left: 0.5rem;
+  }
+
+  .gallery-lightbox-nav--next {
+    right: 0.5rem;
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 export type Language = "EN" | "FR";
 
@@ -10,6 +10,7 @@ export interface TranslationDictionary {
     about: string;
     programs: string;
     activities: string;
+    gallery: string;
     values: string;
     board: string;
     contact: string;
@@ -71,6 +72,27 @@ export interface TranslationDictionary {
       desc: string;
     }[];
   };
+  gallery: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    filterAll: string;
+    filterStudents: string;
+    filterTeachers: string;
+    modalClose: string;
+    modalPrev: string;
+    modalNext: string;
+    imageCount: string;
+    viewFull: string;
+    items: {
+      id: string;
+      title: string;
+      category: string;
+      categoryKey: "students" | "teachers";
+      desc: string;
+      accentColor: string;
+    }[];
+  };
   values: {
     eyebrow: string;
     title: string;
@@ -115,6 +137,7 @@ export interface TranslationDictionary {
       about: string;
       programs: string;
       board: string;
+      gallery: string;
       tuition: string;
       form: string;
       contact: string;
@@ -164,6 +187,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       about: "About Us",
       programs: "Programs",
       activities: "Activities",
+      gallery: "School Life",
       values: "Values",
       board: "Board",
       contact: "Contact",
@@ -279,6 +303,69 @@ export const translations: Record<Language, TranslationDictionary> = {
         },
       ],
     },
+    gallery: {
+      eyebrow: "LIFE AT NBSA",
+      title: "Moments of Joy, Growth & Community",
+      lead: "Step inside Nyagasambu Bright Star Academy. From energetic playground activities to our passionate, nurturing team of educators, experience real daily life at our campus.",
+      filterAll: "All Moments",
+      filterStudents: "Students & Play",
+      filterTeachers: "Our Educators",
+      modalClose: "Close gallery",
+      modalPrev: "Previous photo",
+      modalNext: "Next photo",
+      imageCount: "Photo {current} of {total}",
+      viewFull: "View Photo",
+      items: [
+        {
+          id: "community-panorama",
+          title: "The NBSA Student Body & Staff",
+          category: "School Community",
+          categoryKey: "students",
+          desc: "Our vibrant students in their house colors and tartan uniforms gathered with teachers on the sports pitch, overlooking the stunning green hills of Nyagasambu.",
+          accentColor: "blue",
+        },
+        {
+          id: "students-play",
+          title: "Active Play & Outdoor Joy",
+          category: "Play & Activities",
+          categoryKey: "students",
+          desc: "Teachers and young learners sharing moments of laughter, energy, and physical activity on our dedicated artificial turf pitch.",
+          accentColor: "yellow",
+        },
+        {
+          id: "teachers-motto",
+          title: "Lighting a Thousand Lights",
+          category: "Dedicated Educators",
+          categoryKey: "teachers",
+          desc: "Our teaching staff proudly living our pedagogical motto: 'C'est allumer mille lumières qui éclaireront le monde' (To light a thousand lights that will brighten the world).",
+          accentColor: "red",
+        },
+        {
+          id: "campus-terrace",
+          title: "Educators on Campus Terrace",
+          category: "Terrace & Campus",
+          categoryKey: "teachers",
+          desc: "Staff enjoying the elevated campus terrace surrounded by nature, with sweeping views over the beautiful Nyagasambu valley.",
+          accentColor: "green",
+        },
+        {
+          id: "team-staircase",
+          title: "Unity, Energy & Passion",
+          category: "Our Team",
+          categoryKey: "teachers",
+          desc: "A united team of qualified caregivers, educators, and leaders dedicated to guiding every child toward excellence.",
+          accentColor: "blue",
+        },
+        {
+          id: "staff-meeting",
+          title: "Collaborative Planning & Care",
+          category: "Leadership & Guidance",
+          categoryKey: "teachers",
+          desc: "Our educators collaborating in our bright administration and resource center to ensure the highest standards of care and learning.",
+          accentColor: "yellow",
+        },
+      ],
+    },
     values: {
       eyebrow: "OUR CORE VALUES",
       title: "What We Stand For",
@@ -360,6 +447,7 @@ export const translations: Record<Language, TranslationDictionary> = {
         about: "About Us",
         programs: "Academic Pathway",
         board: "Board of Governors",
+        gallery: "School Life Gallery",
         tuition: "Tuition Fees 2026–2027 (PDF)",
         form: "Admission Form (PDF)",
         contact: "Contact & Admissions",
@@ -424,6 +512,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       about: "À Propos",
       programs: "Programmes",
       activities: "Activités",
+      gallery: "Vie Scolaire",
       values: "Valeurs",
       board: "Conseil",
       contact: "Contact",
@@ -539,6 +628,69 @@ export const translations: Record<Language, TranslationDictionary> = {
         },
       ],
     },
+    gallery: {
+      eyebrow: "VIE À L'ÉCOLE",
+      title: "Moments de Joie, d'Épanouissement et de Communauté",
+      lead: "Découvrez le quotidien à Nyagasambu Bright Star Academy. Des jeux enthousiastes sur le terrain aux inspirations en classe avec nos enseignants dévoués, vivez l'atmosphère unique de notre campus.",
+      filterAll: "Tous les Moments",
+      filterStudents: "Élèves & Jeux",
+      filterTeachers: "Nos Éducateurs",
+      modalClose: "Fermer la galerie",
+      modalPrev: "Photo précédente",
+      modalNext: "Photo suivante",
+      imageCount: "Photo {current} sur {total}",
+      viewFull: "Agrandir",
+      items: [
+        {
+          id: "community-panorama",
+          title: "La Grande Famille NBSA",
+          category: "Communauté Scolaire",
+          categoryKey: "students",
+          desc: "Nos élèves rayonnants dans leurs uniformes aux couleurs des maisons et nos enseignants réunis sur le terrain synthétique, avec pour toile de fond les collines verdoyantes de Nyagasambu.",
+          accentColor: "blue",
+        },
+        {
+          id: "students-play",
+          title: "Jeux & Joie en Plein Air",
+          category: "Activités & Récréation",
+          categoryKey: "students",
+          desc: "Éducateurs et jeunes enfants partageant des instants de joie, d'énergie et d'éveil physique sur notre terrain de sport.",
+          accentColor: "yellow",
+        },
+        {
+          id: "teachers-motto",
+          title: "Allumer Mille Lumières",
+          category: "Éducateurs Dévoués",
+          categoryKey: "teachers",
+          desc: "Notre équipe pédagogique unie autour de notre devise inspirante : « C'est allumer mille lumières qui éclaireront le monde ».",
+          accentColor: "red",
+        },
+        {
+          id: "campus-terrace",
+          title: "Éducateurs sur la Terrasse du Campus",
+          category: "Terrasse du Campus",
+          categoryKey: "teachers",
+          desc: "L'équipe pédagogique sur la terrasse du campus bordée de verdure, avec une vue imprenable sur la vallée de Nyagasambu.",
+          accentColor: "green",
+        },
+        {
+          id: "team-staircase",
+          title: "Unité, Énergie et Dévouement",
+          category: "Notre Équipe",
+          categoryKey: "teachers",
+          desc: "Une équipe solidaire d'éducateurs et de professionnels qualifiés, engagés au quotidien pour le succès de chaque enfant.",
+          accentColor: "blue",
+        },
+        {
+          id: "staff-meeting",
+          title: "Concertation Pédagogique & Bienveillance",
+          category: "Coordination & Pédagogie",
+          categoryKey: "teachers",
+          desc: "Nos enseignants en concertation dans les locaux administratifs pour garantir un accompagnement personnalisé et bienveillant.",
+          accentColor: "yellow",
+        },
+      ],
+    },
     values: {
       eyebrow: "NOS VALEURS FONDAMENTALES",
       title: "Ce Que Nous Défendons",
@@ -620,6 +772,7 @@ export const translations: Record<Language, TranslationDictionary> = {
         about: "À Propos",
         programs: "Parcours Académique",
         board: "Conseil d'Administration",
+        gallery: "Galerie de Vie Scolaire",
         tuition: "Frais de Scolarité 2026–2027 (PDF)",
         form: "Formulaire d'Admission (PDF)",
         contact: "Contact & Admissions",
@@ -693,18 +846,19 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Language>("EN");
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("nbsa_lang") as Language;
-      if (saved && (saved === "EN" || saved === "FR")) {
-        setLangState(saved);
+  const [lang, setLangState] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("nbsa_lang") as Language;
+        if (saved && (saved === "EN" || saved === "FR")) {
+          return saved;
+        }
+      } catch {
+        // Ignore localStorage errors
       }
-    } catch {
-      // Ignore localStorage errors
     }
-  }, []);
+    return "EN";
+  });
 
   const setLang = (newLang: Language) => {
     setLangState(newLang);

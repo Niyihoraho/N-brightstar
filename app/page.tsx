@@ -3,6 +3,7 @@ import AboutUs from "./components/AboutUs";
 import MissionVision from "./components/MissionVision";
 import Programs from "./components/Programs";
 import Activities from "./components/Activities";
+import SchoolLifeGallery from "./components/SchoolLifeGallery";
 import Values from "./components/Values";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -15,6 +16,7 @@ export default function Home() {
       <MissionVision />
       <Programs />
       <Activities />
+      <SchoolLifeGallery />
       <Values />
       <Contact />
       <Footer />
